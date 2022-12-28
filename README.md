@@ -2,7 +2,7 @@
 
 # Metadata locking 
 References: \
-https://dev.mysql.com/doc/refman/8.0/en/metadata-locking.html 
+https://dev.mysql.com/doc/refman/8.0/en/metadata-locking.html \
 https://dev.mysql.com/doc/refman/8.0/en/metadata-locking.html \
 https://support.oracle.com/epmos/faces/SearchDocDisplay?_adf.ctrl-state=h8du9c63x_4&_afrLoop=300667063032591#GOAL \
 Core concepts: \
