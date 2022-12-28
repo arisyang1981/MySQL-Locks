@@ -26,7 +26,7 @@ performance_schema.set_instrucments, performance_schema.metadata_locks, performa
 select sys.ps_thread_id(connection())--get the thread id of a connection \
 set @@global.lock_wait_timeout=value \
 set @@session.lock_wait_timeout=vale \
-6 How to avoid:
+6 How to avoid: \
 Use online schema tool to deploy DDL \
 Avoid expictly transaction mode, for example, in Java, 'set @@session.autocommit=1', avoid 'start transaction', and commit transaction in time. \ 
 
