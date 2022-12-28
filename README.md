@@ -14,12 +14,21 @@ START TRANSACTION; \
 SELECT * FROM t; \
 SELECT * FROM nt; \
 Session1 holds metadata locks on both t and nt until the transaction ends. \
-Session2 attempts a DDL or write lock operation on either table, it blocks until metadata lock release at transaction end. \
+Session2 attempts a DDL or write lock operation on either table, it blocks until metadata lock release at transaction end(until session1 commit or rollback). \
 DROP TABLE t; \
 ALTER TABLE t ...; \
 DROP TABLE nt; \
 ALTER TABLE nt ...; \
 LOCK TABLE t ... WRITE; \
+4 Related system tables: \
+performance_schema.set_instrucments, performance_schema.metadata_locks, performance_schema.events_statement_concurrent, information_schema.innodb_trx, infodbmaterion_schema.processlist, information_schema.threads. \
+5 Fucntions and variables: \
+select sys.ps_thread_id(connection())--get the thread id of a connection \
+set @@global.lock_wait_timeout=value \
+set @@session.lock_wait_timeout=vale \
+6 How to avoid:
+Use online schema tool to deploy DDL \
+Avoid expictly transaction mode, for example, in Java, 'set @@session.autocommit=1', avoid 'start transaction', and commit transaction in time. \ 
 
 
 
